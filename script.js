@@ -21,7 +21,15 @@ function renderHTML(data) {
     output = '';
 
     for (i=0; i < data.length; i++) {
-        output += "<p>" + data[i].name + "</p>"
+        output += "<p>" + data[i].name + " is a " + data[i].species + " that likes to eat: "
+        for (j=0; j < data[i].foods.likes.length; j++) {
+            if (j == 0) {
+                output += data[i].foods.likes[j];
+            } else {
+                output += " and " + data[i].foods.likes[j];
+            }
+        }
+        output += "</p>"
     }
 
     div.insertAdjacentHTML("beforeend", output);
